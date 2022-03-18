@@ -1,18 +1,18 @@
 #!/bin/bash
 
 #autor Nathan Chiodin <nathan.chiodin@epitech.eu>
-#docker image author Adrien Brignon <adrien.brignon@epitech.eu>
+#docker image author epitechcontent/epitest-docker
 
 if [[ $# -eq 0 ]]
 then
-    docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it adrienbrignon/epitech-c
+    docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it epitechcontent/epitest-docker
     exit
 fi
 
 if [[ $# -eq 1 ]] && [ -d "$1" ]
 then
     cp -r $1 $(pwd)/test-src
-    docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it adrienbrignon/epitech-c
+    docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it epitechcontent/epitest-docker
     exit
 fi
 
@@ -49,14 +49,14 @@ fi
 
 if [[ $# -eq 1 ]] && [[ $1 = "-sudo" ]]
 then
-    sudo docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it adrienbrignon/epitech-c
+    sudo docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it epitechcontent/epitest-docker
     exit
 fi
 
 if [[ $# -eq 2 ]] && [[ $1 = "-sudo" ]] && [ -d "$2" ]
 then
     cp -r $2 $(pwd)/test-src
-    sudo docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it adrienbrignon/epitech-c
+    sudo docker run --name test-epitech --env-file=test.env -v "$(pwd)/test-src:/home/test" --workdir=/home/test --rm -it epitechcontent/epitest-docker
     exit
 fi
 
